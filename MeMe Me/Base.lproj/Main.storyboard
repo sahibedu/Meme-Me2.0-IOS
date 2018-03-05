@@ -179,7 +179,7 @@
                                 <rect key="frame" x="16" y="566" width="343" height="36"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6WP-Bt-FPb"/>
                                 </connections>
@@ -227,7 +227,7 @@
                                 <rect key="frame" x="16" y="101" width="343" height="36"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done" textContentType="name"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cfU-rG-jjs"/>
                                 </connections>
