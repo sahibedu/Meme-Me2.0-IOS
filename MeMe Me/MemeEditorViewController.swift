@@ -25,14 +25,12 @@ class MemeEditorViewController: UIViewController{
         configureTextField(textfield: bottomTextArea, intext: "BOTTOM")
     }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         //This will hide Camera Button if Camera is not there
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotification()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
         unsubscribeFromKeyboardNotifications()
     }
     
@@ -52,9 +50,12 @@ class MemeEditorViewController: UIViewController{
     //MARK: CreateAndSaveImage
     
     func saveimage(memedImage : UIImage){
-        let newmeme = Meme(topText: topTextArea.text!, bottomText: bottomTextArea.text!, orignalImage: imageView.image!, EditedImage: memedImage)
-        let appdelegatecontroller = UIApplication.shared.delegate as! AppDelegate
-        appdelegatecontroller.memesArray.append(newmeme)
+        let newMeme = MemeStruct(topText: topTextArea.text!, bottomText: bottomTextArea.text!, orignalImage: imageView.image!, EditedImage: memedImage)
+        (UIApplication.shared.delegate as! AppDelegate).MemeData.append(newMeme)
+        print("Here Comes the New Meme")
+        print(newMeme)
+        print("Here Comes The MemeData")
+        print((UIApplication.shared.delegate as! AppDelegate).MemeData)
         dismiss(animated: true, completion: nil)
     }
     
@@ -86,13 +87,13 @@ class MemeEditorViewController: UIViewController{
     @IBAction func saveButton(_ sender: Any) {
         let image = generateEditedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        present(controller, animated: true, completion: nil)
         controller.completionWithItemsHandler = {
             (activitytype,completed,items,error) in
             if completed {
                 self.saveimage(memedImage: image)
             }
         }
+        present(controller, animated: true, completion: nil)
         
     }
     @IBAction func cancelButton(_ sender: Any) {

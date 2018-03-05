@@ -2,7 +2,7 @@
 //  MemeCollectionViewCell.swift
 //  MeMe Me
 //
-//  Created by Sahib on 28/02/18.
+//  Created by Sahib on 06/03/18.
 //  Copyright © 2018 RTS Production. All rights reserved.
 //
 
@@ -10,5 +10,6 @@ import UIKit
 
 class MemeCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var memeImage: UIImageView!
+    @IBOutlet weak var editedImageView: UIImageView!
+    
 }
