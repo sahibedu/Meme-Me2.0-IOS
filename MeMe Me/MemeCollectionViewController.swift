@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "memeCollectionViewCell"
+let detailImageSend = UIImage()
 
 class MemeCollectionViewController: UICollectionViewController {
     
@@ -50,7 +51,10 @@ class MemeCollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDelegate
-
-
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let memeDetail = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        let meme = (UIApplication.shared.delegate as! AppDelegate).MemeData[indexPath.row]
+        memeDetail.detailMeme = meme
+    }
 
 }

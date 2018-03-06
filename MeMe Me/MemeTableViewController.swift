@@ -60,5 +60,11 @@ class MemeTableViewController: UITableViewController {
         }    
     }
     */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let memeDetail = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        let meme = (UIApplication.shared.delegate as! AppDelegate).MemeData[indexPath.row]
+        memeDetail.imageDetail.image = meme.EditedImage
+    }
 
 }

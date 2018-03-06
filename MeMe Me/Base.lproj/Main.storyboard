@@ -31,7 +31,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ds9-e9-JpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2297" y="90"/>
+            <point key="canvasLocation" x="-2185" y="269"/>
         </scene>
         <!--Table-->
         <scene sceneID="NpH-Ge-Lad">
@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="-1130" y="-456"/>
         </scene>
-        <!--Meme Table View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="0cj-aF-8F0">
             <objects>
                 <tableViewController id="cwV-Lg-Ad2" customClass="MemeTableViewController" customModule="MeMe_Me" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,6 +75,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BoZ-Nh-iqi" kind="show" id="LoW-gZ-JiB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -82,7 +85,7 @@
                             <outlet property="delegate" destination="cwV-Lg-Ad2" id="I2k-po-LiV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yMN-HG-GrC">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="yMN-HG-GrC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cpr-TW-oTw">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="ct2-Gg-Ib3"/>
@@ -109,9 +112,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVn-I8-P2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1375" y="619"/>
+            <point key="canvasLocation" x="-1130" y="969"/>
         </scene>
-        <!--Meme Collection View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="9WY-xs-G5g">
             <objects>
                 <collectionViewController id="E3t-Ie-XRx" customClass="MemeCollectionViewController" customModule="MeMe_Me" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,6 +144,7 @@
                                 </view>
                                 <connections>
                                     <outlet property="editedImageView" destination="kAo-Xl-7Xy" id="8zS-gh-vVA"/>
+                                    <segue destination="BoZ-Nh-iqi" kind="show" id="ix7-zs-gOt"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -149,7 +153,7 @@
                             <outlet property="delegate" destination="E3t-Ie-XRx" id="tIB-Zw-CKk"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="PYO-3I-7GO">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="PYO-3I-7GO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qf1-32-g76">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="6k6-yC-0cQ"/>
@@ -162,7 +166,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ywt-P0-7CQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-639.20000000000005" y="619.34032983508246"/>
+            <point key="canvasLocation" x="-402" y="968"/>
         </scene>
         <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -270,8 +274,38 @@
             </objects>
             <point key="canvasLocation" x="479" y="105"/>
         </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="Ucv-YC-scB">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" id="BoZ-Nh-iqi" customClass="MemeDetailViewController" customModule="MeMe_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Idm-gE-KFi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sYx-Gd-hed">
+                                <rect key="frame" x="16" y="178" width="343" height="311"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sYx-Gd-hed" firstAttribute="width" secondItem="Idm-gE-KFi" secondAttribute="width" constant="-32" id="DEz-Wk-JFf"/>
+                            <constraint firstItem="sYx-Gd-hed" firstAttribute="height" secondItem="Idm-gE-KFi" secondAttribute="height" constant="-356" id="bpM-NH-vhA"/>
+                            <constraint firstItem="sYx-Gd-hed" firstAttribute="top" secondItem="EVj-tE-Osv" secondAttribute="top" constant="114" id="eyc-zb-6qv"/>
+                            <constraint firstItem="sYx-Gd-hed" firstAttribute="leading" secondItem="EVj-tE-Osv" secondAttribute="leading" constant="16" id="mDM-gY-GFG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EVj-tE-Osv"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageDetail" destination="sYx-Gd-hed" id="nsx-6h-ZaR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5kb-iS-tuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-402.39999999999998" y="239.73013493253376"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ct2-Gg-Ib3"/>
+        <segue reference="LoW-gZ-JiB"/>
+        <segue reference="6k6-yC-0cQ"/>
     </inferredMetricsTieBreakers>
 </document>
