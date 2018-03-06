@@ -9,7 +9,6 @@
 import UIKit
 
 private let reuseIdentifier = "memeCollectionViewCell"
-let detailImageSend = UIImage()
 
 class MemeCollectionViewController: UICollectionViewController {
     
@@ -17,7 +16,7 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,6 +32,8 @@ class MemeCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         collectionView?.reloadData()
+        navigationController?.isNavigationBarHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
 
     // MARK: UICollectionViewDataSource
@@ -52,9 +53,11 @@ class MemeCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let memeDetail = storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         let meme = (UIApplication.shared.delegate as! AppDelegate).MemeData[indexPath.row]
         memeDetail.detailMeme = meme
+        navigationController?.pushViewController(memeDetail, animated: true)
     }
 
 }

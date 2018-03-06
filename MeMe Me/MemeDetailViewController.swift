@@ -11,12 +11,13 @@ import UIKit
 class MemeDetailViewController: UIViewController {
     @IBOutlet weak var imageDetail: UIImageView!
     
-    var detailMeme : MemeStruct!
+    var detailMeme : MemeStruct! = nil
     
     override func viewWillAppear(_ animated: Bool) {
+        print(detailMeme.EditedImage)
         super.viewWillAppear(true)
         imageDetail.image = detailMeme.EditedImage
-
+        tabBarController?.tabBar.isHidden = true
     }
 
 }
