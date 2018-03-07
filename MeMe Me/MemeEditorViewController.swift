@@ -31,6 +31,7 @@ class MemeEditorViewController: UIViewController{
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
         unsubscribeFromKeyboardNotifications()
     }
     
@@ -42,9 +43,9 @@ class MemeEditorViewController: UIViewController{
     ]
     
     func configureTextField(textfield : UITextField,intext : String){
-        textfield.defaultTextAttributes=memeTextAttributes
+        textfield.defaultTextAttributes = memeTextAttributes
         textfield.textAlignment = .center
-        textfield.text=intext
+        textfield.text = intext
     }
     
     //MARK: CreateAndSaveImage
@@ -52,10 +53,6 @@ class MemeEditorViewController: UIViewController{
     func saveimage(memedImage : UIImage){
         let newMeme = MemeStruct(topText: topTextArea.text!, bottomText: bottomTextArea.text!, orignalImage: imageView.image!, EditedImage: memedImage)
         (UIApplication.shared.delegate as! AppDelegate).MemeData.append(newMeme)
-        print("Here Comes the New Meme")
-        print(newMeme)
-        print("Here Comes The MemeData")
-        print((UIApplication.shared.delegate as! AppDelegate).MemeData)
         dismiss(animated: true, completion: nil)
     }
     
@@ -73,13 +70,13 @@ class MemeEditorViewController: UIViewController{
     }
     
     func hide(value : Bool){
-        topToolBar.isHidden=value
-        bottomToolBar.isHidden=value
+        topToolBar.isHidden = value
+        bottomToolBar.isHidden = value
     }
     
     func initialview(){
-        imageView.image=nil
-        shareButton.isEnabled=false
+        imageView.image = nil
+        shareButton.isEnabled = false
     }
     
     //MARK: IBAction
@@ -139,7 +136,7 @@ extension MemeEditorViewController : UIImagePickerControllerDelegate,UINavigatio
     @IBAction func imagePicker(_ sender: AnyObject) {
         let controller = UIImagePickerController()
         controller.delegate=self
-        if(sender.tag==0) {
+        if (sender.tag==0) {
             controller.sourceType = .photoLibrary
             controller.allowsEditing=true
 
@@ -158,8 +155,7 @@ extension MemeEditorViewController : UIImagePickerControllerDelegate,UINavigatio
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         shareButton.isEnabled=true
-        if let image=info[UIImagePickerControllerOriginalImage] as? UIImage
-        {
+        if let image=info[UIImagePickerControllerOriginalImage] as? UIImage{
             imageView.image = image
             dismiss(animated: true, completion: nil)
         }
@@ -170,10 +166,8 @@ extension MemeEditorViewController : UITextFieldDelegate {
     //MARK: TextFieldDelegates
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if (textField.text=="TOP" || textField.text=="BOTTOM")
-        {
+        if (textField.text=="TOP" || textField.text=="BOTTOM"){
             textField.text=""
-            
         }
     }
     

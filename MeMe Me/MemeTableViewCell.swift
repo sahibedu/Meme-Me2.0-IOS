@@ -11,17 +11,12 @@ import UIKit
 class MemeTableViewCell: UITableViewCell {
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var topTextView: UITextField!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
+    
     func setupCellWith(Meme:MemeStruct){
         imageOutlet.image = Meme.EditedImage
         topTextView.text = Meme.topText
