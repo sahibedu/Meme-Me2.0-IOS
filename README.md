@@ -1,6 +1,6 @@
 # Meme-Me2.0-IOS
 ### Dated 06 March 2018
-### Created By Sahib(RTS Production)
+### Created By Sahib(RTS Production ft. Rounak Arya for Hacktoberfest 2019)
 #### Created Under Udacity IOS Nanodegree Projects
 
 ### Prerequisite
